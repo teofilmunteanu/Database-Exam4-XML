@@ -5,12 +5,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this 
 -->
 <root>
     
-    <cafes>
-        <name>dsadas</name>
-        <location>dasdsa</location>
-        <description>dasdsad</description>
-        <image>./images/126231d7a13bac75d8e014158528cc0bacaju.jpg</image>
-        <description>dasdsad</description>
-        <emailAssigned>123@123</emailAssigned>
-    </cafes>
+    
 </root>

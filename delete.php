@@ -1,20 +1,21 @@
 <?php
-require_once 'connection.php';
-//$sql1="SELECT * FROM cafes WHERE id='{$_GET['id']}'";
-//$query=mysqli_query($con, $sql1) or die(mysqli_error($con));
-//$row=mysqli_fetch_array($query);
-//unlink($row["image"]);
-//$sql2="DELETE FROM cafes WHERE id='{$_GET['id']}'";
-//$query=mysqli_query($con, $sql2) or die(mysqli_error($con));
-$dbtable = 'examendb3.cafes';
-$id= new \MongoDB\BSON\ObjectId($_GET['id']);
-$bulk = new MongoDB\Driver\BulkWrite;
-$filter = ['_id' => $id];
-        
-$bulk->delete($filter);
-$client->executeBulkWrite($dbtable, $bulk);
+$name = $_GET['name'];
 
-header('location:index.php');
+$xml_data = simplexml_load_file("CafesData.xml") or die("Error : Object Creation failure");
+foreach ($xml_data->children() as $data)
+    if($data->name == $_GET['name'])
+    {
+        unlink($data->src);
+    }
+$xml= new DOMDocument();
+$xml->load('CafesData.xml');
+$xpath= new DOMXPATH($xml);
+foreach($xpath->query("/root/cafes[name='$name']")as $node){
+    $node->parentNode->removeChild($node);
+}
+$xml->formatoutput=true;
+$xml->save('CafesData.xml');
+
 
 
 ?>

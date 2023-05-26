@@ -17,25 +17,18 @@
     <xsl:template match="/">
         <html>
             <head>
-                <!-- Favicons -->
-                <link href="assets/img/favicon.png" rel="icon">
-                <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-                <!-- Google Fonts -->
-                <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-
                 <!-- Vendor CSS Files -->
-                <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-                <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-                <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-                <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-                <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+                <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+                <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+                <link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
+                <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+                <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
 
                 <!-- Variables CSS Files. Uncomment your preferred color scheme -->
-                <link href="assets/css1/variables-orange.css" rel="stylesheet">
+                <link href="assets/css1/variables-orange.css" rel="stylesheet"/>
 
                 <!-- Template Main CSS File -->
-                <link href="assets/css1/mainstyle7.css" rel="stylesheet">
+                <link href="assets/css1/mainstyle7.css" rel="stylesheet"/>
             </head>
             <body>
                 <xsl:for-each select="root/cafes">
@@ -45,45 +38,69 @@
                           <div class="row">
                               <div class="col">
                                 <h2 class="title">
-                                    <a href="cafe_details.php?name={name}&amp;email={email}" onclick="{saveAudioTime()}">
-                                        <xsl:value-of select="name"/>                                        
-                                        <xsl:value-of select="emailAssigned"/>
+                                    <a href="cafe_details.php?name={name}&amp;email={emailAssigned}">
                                         <span>
                                           <xsl:value-of select="name"/>
                                         </span>
                                     </a>
                                 </h2>
                               </div>
-
-                              <?php if($cafeDoc->emailAssigned==$_SESSION['email']){ ?>
-                              <div class="col">
-                                <button type="button" id="<?php echo $cafeDoc->_id;?>" onclick="selectDelete(this.id)" class="btn btn-danger float-end" data-toggle="modal" data-target="#exampleModalCenter">
-                                  X
-                                </button>
+                              
+                            <div class="col">
+                                 <xsl:element name="button">
+                                    <xsl:attribute name="type">button</xsl:attribute>
+                                    <xsl:attribute name="onclick">
+                                        <xsl:text>selectDelete('</xsl:text>
+                                        <xsl:value-of select="name" />
+                                        <xsl:text>')</xsl:text>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="class">btn btn-danger float-end</xsl:attribute>
+                                    <xsl:attribute name="data-toggle">modal</xsl:attribute>
+                                    <xsl:attribute name="data-target">#exampleModalCenter</xsl:attribute>
+                                    X
+                                  </xsl:element>
                               </div>
-                              <?php }?>
+
 
                           </div>
 
                           <div class="meta-top">
                             <ul>
-                              <li class="d-flex align-items-center"><i class="bi bi-person"></i>Post by: <?php echo $cafeDoc->emailAssigned; ?></li>
+                              <li class="d-flex align-items-center"><i class="bi bi-person"></i>Post by: <xsl:value-of select="emailAssigned"/></li>
                             </ul>
                           </div>  
 
                           <div class="content">
                             <p>
-                              <?php echo $cafeDoc->description; ?>
+                              <xsl:value-of select="description"/>
                             </p>
                           </div>
 
                           <div class="read-more mt-auto align-self-end">
-                            <a href="cafe_details.php?name=<?php echo $cafeDoc->name;?>&email=<?php echo $cafeDoc->emailAssigned;?>" onclick="saveAudioTime()">Details</a>
+                            <a href="cafe_details.php?name={name}&amp;email={emailAssigned}">
+                                <span>Details</span>
+                            </a>
                           </div>
 
                         </article>
                       </div>
                 </xsl:for-each>   
+                
+                <!-- Vendor JS Files -->
+                <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="assets/vendor/aos/aos.js"></script>
+                <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+                <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+                <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+                <script src="assets/vendor/php-email-form/validate.js"></script>
+
+                <!-- Template Main JS File -->
+                <script src="assets/js/main.js"></script>
+                <script src="assets/js/scripts.js"></script>
+                <script src="assets/js/mediaScripts.js"></script>
+
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js" integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             </body>
         </html>
     </xsl:template>

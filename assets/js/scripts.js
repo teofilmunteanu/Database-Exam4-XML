@@ -27,11 +27,11 @@ function hideUploadMenuPublic()
 
 var idToDelete="";
 
-function selectDelete(id){
-    idToDelete = id;
+function selectDelete(name){
+    nameToDelete = name;
 }
 
 function confirmDelete(){
-    window.location.href = "delete.php?id="+idToDelete;
+    window.location.href = "delete.php?name="+nameToDelete;
 }
 

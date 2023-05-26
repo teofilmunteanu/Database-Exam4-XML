@@ -183,17 +183,18 @@ else{
                             
 <!--                        while($row=mysqli_fetch_array($cafesResult)){-->
                             
-                           <?php
-                            $xslDoc = new DOMDocument();
-                            $xslDoc->load("CafesData.xsl");
+                             
+                            <?php
+                                $xslDoc = new DOMDocument();
+                                $xslDoc->load("CafesData.xsl");
 
-                            $xmlDoc = new DOMDocument();
-                            $xmlDoc->load("CafesData.xml");
+                                $xmlDoc = new DOMDocument();
+                                $xmlDoc->load("CafesData.xml");
 
-                            $proc= new XSLTProcessor();
-                            $proc->importStylesheet($xslDoc);
-                            echo $proc->transformToXml($xmlDoc);
-                           ?>     
+                                $proc= new XSLTProcessor();
+                                $proc->importStylesheet($xslDoc);
+                                echo $proc->transformToXml($xmlDoc);
+                            ?>   
                         
                         </div>
                         <!-- End Cafes list -->    
@@ -277,6 +278,7 @@ else{
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js" integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 
 </html>
