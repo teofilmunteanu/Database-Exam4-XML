@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT root (date)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT date (email|lastName|firstName|password)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT email (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT lastName (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT firstName (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT password (#PCDATA)>
