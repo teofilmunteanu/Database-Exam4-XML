@@ -70,7 +70,6 @@ if(isset($_POST['submit'])){
         $date->addChild('location', $loc); 
         $date->addChild('description', $desc);
         $date->addChild('image', $target);
-        $date->addChild('description', $desc);
         $date->addChild('emailAssigned', $email); 
         file_put_contents('CafesData.xml', $xml->asXML());
          

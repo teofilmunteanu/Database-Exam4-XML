@@ -9,14 +9,14 @@ else{
     $email=$_SESSION['email'];
     
     $xml=simplexml_load_file("UsersData.xml") or die("Error: Cannot create object");
+    
+    $firstName="";
     foreach ($xml->children() as $data){
         if($email == $data->email){
             $firstName = $data->firstName;
             break;
         }
     }
-    
-    $_SESSION['firstName'] = $firstName;
 }
 ?>
 
@@ -30,10 +30,6 @@ else{
   <title>CaféBook</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
@@ -167,7 +163,7 @@ else{
                         <div class="col-lg-12">
                             <article class="d-flex justify-content-center flex-column">
                                 <h1 class="title">
-                                Hello <?php echo $_SESSION['firstName']; ?>. 
+                                Hello <?php echo $firstName; ?>. 
                                 </h1>
                                 <div class="d-flex justify-content align-self-end">
                                     <div class="read-more mt-auto">

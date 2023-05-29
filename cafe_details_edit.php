@@ -71,9 +71,11 @@ else
             $resultCafe->name=$newCafeName;
             $resultCafe->location=$newLocation;
             $resultCafe->description=$newDescription;
-            $resultCafe->image=$target;   
+            $resultCafe->image=$target;            
+            $resultCafe->emailAssigned=$email;   
+   
             $handle= fopen("CafesData.xml", "wb");
-            fwrite($handle, $resultCafe->asXML());
+            fwrite($handle, $xml->asXML());
             fclose($handle);
             $msg="";
             
@@ -83,7 +85,8 @@ else
 
         
     } else if (isset($_POST['discard'])) {
-        header('Location:cafe_details.php?name='.$cafeName.'&email='.$email);
+    echo "oops";
+//header('Location:cafe_details.php?name='.$cafeName.'&email='.$email);
     }
 }
 

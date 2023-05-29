@@ -31,7 +31,7 @@
                 <link href="assets/css1/mainstyle7.css" rel="stylesheet"/>
             </head>
             <body>
-                <xsl:for-each select="root/cafes">
+                <xsl:for-each select="root/cafe">
                     <div class="col-lg-6">
                         <article class="d-flex flex-column">
 
