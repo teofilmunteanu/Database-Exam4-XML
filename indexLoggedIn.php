@@ -181,6 +181,15 @@ else{
                             
                              
                             <?php
+                                $xml2=simplexml_load_file("CafesData.xml") or die("Error: Cannot create object");
+                                foreach ($xml2->children() as $data){
+                                    $data->sessionEmail=$email;  
+                                }      
+                                $handle= fopen("CafesData.xml", "wb");
+                                fwrite($handle, $xml2->asXML());
+                                fclose($handle);
+                                
+                                
                                 $xslDoc = new DOMDocument();
                                 $xslDoc->load("CafesData.xsl");
 

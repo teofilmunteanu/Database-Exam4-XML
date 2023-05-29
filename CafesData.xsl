@@ -47,6 +47,7 @@
                               </div>
                               
                             <div class="col">
+                                <xsl:if test="sessionEmail = emailAssigned">
                                  <xsl:element name="button">
                                     <xsl:attribute name="type">button</xsl:attribute>
                                     <xsl:attribute name="onclick">
@@ -59,9 +60,8 @@
                                     <xsl:attribute name="data-target">#exampleModalCenter</xsl:attribute>
                                     X
                                   </xsl:element>
+                                </xsl:if>
                               </div>
-
-
                           </div>
 
                           <div class="meta-top">
