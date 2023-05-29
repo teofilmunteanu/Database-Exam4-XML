@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root>  
-    
-    <users>
+<root>    
+    <user>
         <email>123@123</email>
         <lastName>111</lastName>
         <firstName>111</firstName>
         <password>4297f44b13955235245b2497399d7a93</password>
-    </users>
+    </user>
+    <user>
+        <email>111@111</email>
+        <lastName>111</lastName>
+        <firstName>111</firstName>
+        <password>96e79218965eb72c92a549dd5a330112</password>
+    </user>
 </root>

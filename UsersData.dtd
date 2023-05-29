@@ -1,10 +1,29 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<!--- Put your DTDDoc comment here. -->
-<!ELEMENT root (date)*>
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/UsersData.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE root SYSTEM "UsersData.dtd">
+
+    <root>
+    ...
+    </root>
+-->
 
 <!--- Put your DTDDoc comment here. -->
-<!ELEMENT date (email|lastName|firstName|password)*>
+<!ELEMENT root (user)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT user (email|lastName|firstName|password)*>
 
 <!--- Put your DTDDoc comment here. -->
 <!ELEMENT email (#PCDATA)>

@@ -39,7 +39,7 @@ if(($_POST['email'] != "") && ($_POST['password'] != "")
                 $user = new User();
                 $user->setData($_POST['email'], md5($_POST['password']), $_POST['lastName'], $_POST['firstName']);
                 
-                $date=$xml->addChild('users');
+                $date=$xml->addChild('user');
                 $date->addChild('email', $user->email); 
                 $date->addChild('lastName', $user->lastName);                
                 $date->addChild('firstName', $user->firstName); 

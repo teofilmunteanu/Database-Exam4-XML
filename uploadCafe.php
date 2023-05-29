@@ -65,7 +65,7 @@ if(isset($_POST['submit'])){
 //            'emailAssigned' =>$email
 //        );
          
-        $date=$xml->addChild('cafes');
+        $date=$xml->addChild('cafe');
         $date->addChild('name', $name);     
         $date->addChild('location', $loc); 
         $date->addChild('description', $desc);
