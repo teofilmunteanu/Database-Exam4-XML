@@ -1,5 +1,4 @@
 <?php
-require_once 'connection.php';
 session_start();
 
 if(!isset($_SESSION['email'])){
@@ -7,26 +6,23 @@ if(!isset($_SESSION['email'])){
 }
 else
 {
-    $dbtable = "examendb3.cafes";
-    
     $currentUser = $_SESSION['email'];
-//    $userSql="SELECT * FROM users WHERE email='$currentUser';";
-//    $userResult=mysqli_query($con, $userSql)or die(mysqli_error($con));
-//    $userType=mysqli_fetch_array($userResult)['userType'];
-//    $filter=['email' => $currentUser];
-//    $query = new MongoDB\Driver\Query($filter);
-//    $article = $client->executeQuery("examendb3.users", $query);
-//    $userResult= current($article->toArray());
-    
+
     $email = $_GET['email'];
     $cafeName = $_GET['name'];
 //    $cafesSql="SELECT * FROM cafes WHERE name='$cafeName' AND emailAssigned='$email';";
 //    $cafesResult=mysqli_query($con, $cafesSql)or die(mysqli_error($con));
 //    $row=mysqli_fetch_array($cafesResult);
-    $filter=['emailAssigned' => $email, 'name' => $cafeName];
-    $query = new MongoDB\Driver\Query($filter);
-    $article = $client->executeQuery($dbtable, $query);
-    $cafesResult = current($article->toArray());
+    
+    $xml=simplexml_load_file("CafesData.xml") or die("Error: Cannot create object");
+
+    $cafesResult = "";
+    foreach ($xml->children() as $data){
+        if($data->name == $cafeName && $data->emailAssigned == $email){
+            $cafesResult = $data;
+            break;
+        }
+    }
 }
 
 
@@ -134,7 +130,7 @@ else
                                 </h1>
                                 <h4>Description:</h4>
                                 <p>
-                                  <?php echo$cafesResult->description; ?>
+                                  <?php echo $cafesResult->description; ?>
                                 </p>
                                 
                                 <div>

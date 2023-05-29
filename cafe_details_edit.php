@@ -1,5 +1,4 @@
 <?php
-require_once 'connection.php';
 session_start();
 
 if(!isset($_SESSION['email']) || $_SESSION['email'] != $_GET['email']){
@@ -7,17 +6,19 @@ if(!isset($_SESSION['email']) || $_SESSION['email'] != $_GET['email']){
 }
 else
 {
-    $dbtable = "examendb3.cafes";
-    
     $email = $_GET['email'];
     $cafeName = $_GET['name'];
-//    $cafesSql="SELECT * FROM cafes WHERE name='$cafeName' AND emailAssigned='$email';";
-//    $cafesResult=mysqli_query($con, $cafesSql)or die(mysqli_error($con));
-//    $row=mysqli_fetch_array($cafesResult);
-    $filter=['emailAssigned' => $email, 'name' => $cafeName];
-    $query = new MongoDB\Driver\Query($filter);
-    $article = $client->executeQuery($dbtable, $query);
-    $resultCafe = current($article->toArray());
+
+    $resultCafe = "";
+     
+    $xml=simplexml_load_file("CafesData.xml") or die("Error: Cannot create object");
+
+    foreach ($xml->children() as $data){
+        if($data->name == $cafeName && $data->emailAssigned == $email){
+            $resultCafe = $data;
+            break;
+        }
+    }
         
     $msg="";
     
@@ -67,21 +68,13 @@ else
         
 
         if($msg == "Saved"){
-//            $sql1="UPDATE cafes SET name='{$newCafeName}', location='{$newLocation}', description='{$newDescription}', image='{$target}' WHERE name='$cafeName' AND emailAssigned='$email';";
-//            mysqli_query($con, $sql1)or die(mysqli_error($con));
-            $bulk = new MongoDB\Driver\BulkWrite;
-            $data=[
-                'name'=> $newCafeName,
-                'location' => $newLocation,
-                'description' => $newDescription,
-                'image' => $target
-            ]; 
-            $filter = ['name' => $cafeName, 'emailAssigned' => $email];
-            $update = ['$set' =>$data];
-            $bulk->update($filter, $update);      
-            $client->executeBulkWrite($dbtable, $bulk);
-            
-            
+            $resultCafe->name=$newCafeName;
+            $resultCafe->location=$newLocation;
+            $resultCafe->description=$newDescription;
+            $resultCafe->image=$target;   
+            $handle= fopen("CafesData.xml", "wb");
+            fwrite($handle, $resultCafe->asXML());
+            fclose($handle);
             $msg="";
             
             header('Location:cafe_details.php?name='.$newCafeName.'&email='.$email);
