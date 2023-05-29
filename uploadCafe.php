@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
         $date->addChild('description', $desc);
         $date->addChild('image', $target);
         $date->addChild('emailAssigned', $email); 
-//        $date->addChild('delete', 'delete.php?name='.$name);
+        $date->addChild('delete', 'delete.php?name='.$name);
         file_put_contents('CafesData.xml', $xml->asXML());
          
         header('location:index.php');
