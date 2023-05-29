@@ -17,9 +17,10 @@ if(isset($_POST['submit'])){
     }
     else{
         $cafeExists = false;
+        
         foreach ($xml->children() as $data){
             if($email== $data->emailAssigned && $name == $data->name){
-                $emailTaken = true;
+                $cafeExists = true;
                 break;
             }
         }
@@ -55,22 +56,14 @@ if(isset($_POST['submit'])){
     }
     
     
-    if($msg == "Saved"){
-//         $data=array(
-//            '_id' => new MongoDB\BSON\ObjectID,
-//            'name'=>$name,
-//            'location'=>$loc,
-//            'description' => $desc,
-//            'image' => $target,
-//            'emailAssigned' =>$email
-//        );
-         
+    if($msg == "Saved"){         
         $date=$xml->addChild('cafe');
         $date->addChild('name', $name);     
         $date->addChild('location', $loc); 
         $date->addChild('description', $desc);
         $date->addChild('image', $target);
         $date->addChild('emailAssigned', $email); 
+//        $date->addChild('delete', 'delete.php?name='.$name);
         file_put_contents('CafesData.xml', $xml->asXML());
          
         header('location:index.php');
