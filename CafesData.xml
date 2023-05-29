@@ -1,4 +1,20 @@
 <?xml version="1.0"?>
 <root>
 
-<cafe><name>dfasdsa</name><location>adsdsad</location><description>dasd</description><image>./images/ffb8c7336418b6f8643211513a02b781Screenshot (5).png</image><emailAssigned>111@111</emailAssigned><sessionEmail>111@111</sessionEmail></cafe><cafe><name>asdfsadf</name><location>afsdfasdf</location><description>afsdfsad</description><image>./images/9025514ee04866a409a839ea5bbd8d2bScreenshot (6).png</image><emailAssigned>123@123</emailAssigned><sessionEmail>111@111</sessionEmail></cafe></root>
+    <cafe>
+        <name>dfasdsa</name>
+        <location>adsdsad</location>
+        <description>dasd</description>
+        <image>./images/ffb8c7336418b6f8643211513a02b781Screenshot (5).png</image>
+        <emailAssigned>111@111</emailAssigned>
+        <sessionEmail>111@111</sessionEmail>
+    </cafe>
+    <cafe>
+        <name>asdfsadf</name>
+        <location>afsdfasdf</location>
+        <description>afsdfsad</description>
+        <image>./images/9025514ee04866a409a839ea5bbd8d2bScreenshot (6).png</image>
+        <emailAssigned>123@123</emailAssigned>
+        <sessionEmail>111@111</sessionEmail>
+    </cafe>
+</root>
