@@ -52,7 +52,7 @@
             PageHandler::getLoggedInPage();
         }else if(isset($_COOKIE['email'])){
             $_SESSION['email'] = $_COOKIE['email'];
-            PageHandler::getLoggedInPage($_COOKIE['email']); 
+            PageHandler::getLoggedInPage(); 
         }
         else{
             PageHandler::getHomePage();

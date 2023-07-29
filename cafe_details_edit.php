@@ -123,17 +123,28 @@ else
                 </div>
                 <div class="col">
                     <div class="row">
-                        <svg width="50" height="20" >
-                            <path d="M 10 1 C 7 5, 7 6, 11 9 S 13 15, 10 18" stroke="white" fill="transparent"/>
-                            <path d="M 20 1 C 17 5, 17 6, 21 9 S 23 15, 20 18" stroke="white" fill="transparent"/>
-                            <path d="M 30 1 C 27 5, 27 6, 31 9 S 33 15, 30 18" stroke="white" fill="transparent"/>
-                        </svg>
+                        <?php
+                        $xml = simplexml_load_file('cafeSmoke.xml');
+
+                        $svg = $xml->svg->asXML();
+                        $svg = str_replace('<?xml version="1.0"?>', '', $svg);
+
+                        $html = '<div>' . $svg . '</div>';
+
+                        echo $html;
+                        ?>
                     </div>
                     <div class="row">
-                        <svg width="50" height="20" >
-                            <circle cx="20" cy="0" r="16" fill="orange"/>
-                            <path d="M 29 11 C 43 11, 43 -2, 35 3" fill="none" stroke="orange" stroke-width="2"/>
-                        </svg>
+                        <?php
+                        $xml = simplexml_load_file('cafeCup.xml');
+
+                        $svg = $xml->svg->asXML();
+                        $svg = str_replace('<?xml version="1.0"?>', '', $svg);
+
+                        $html = '<div>' . $svg . '</div>';
+
+                        echo $html;
+                        ?>
                     </div>
                 </div>
                 

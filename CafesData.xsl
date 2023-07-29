@@ -75,11 +75,16 @@
                               <xsl:value-of select="description"/>
                             </p>
                           </div>
-
+                          
+                          
                           <div class="read-more mt-auto align-self-end">
-                            <a href="cafe_details.php?name={name}&amp;email={emailAssigned}">
-                                <span>Details</span>
-                            </a>
+                              <xsl:element name="a">
+                                 <xsl:attribute name="href">
+                                     <xsl:value-of select="concat('cafe_details.php?name=', name, '&amp;email=', emailAssigned)"/>
+                                 </xsl:attribute>
+                                 <span>Details </span>
+                             </xsl:element>
+                            
                           </div>
 
                         </article>

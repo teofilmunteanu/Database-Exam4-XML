@@ -7,7 +7,7 @@
         <description>dasd</description>
         <image>./images/ffb8c7336418b6f8643211513a02b781Screenshot (5).png</image>
         <emailAssigned>111@111</emailAssigned>
-        <sessionEmail>111@111</sessionEmail>
+        <sessionEmail>123@456</sessionEmail>
     </cafe>
     <cafe>
         <name>asdfsadf</name>
@@ -15,6 +15,6 @@
         <description>afsdfsad</description>
         <image>./images/9025514ee04866a409a839ea5bbd8d2bScreenshot (6).png</image>
         <emailAssigned>123@123</emailAssigned>
-        <sessionEmail>111@111</sessionEmail>
+        <sessionEmail>123@456</sessionEmail>
     </cafe>
-</root>
+<cafe><name>fasdfsadf</name><location>adsfasdf</location><description>asdfsadf</description><image>./images/bfc7e692c5c5c0ad29ef867e43703ca3Screenshot (5).png</image><emailAssigned>123@456</emailAssigned><sessionEmail>123@456</sessionEmail></cafe></root>
